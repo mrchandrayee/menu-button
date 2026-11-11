@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1e1e2f;
+  }
+
+  /* Hide the checkbox itself */
+  .menu-toggle {
+    position: absolute;
+    opacity: 0;
+    width: 70px;
+    height: 70px;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .menu-btn {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #2e2e42;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-btn span,
+  .menu-btn span::before,
+  .menu-btn span::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 3px;
+    background: #f5f5f5;
+    border-radius: 3px;
+    transition: transform 0.35s ease, top 0.35s ease, opacity 0.2s ease;
+  }
+
+  .menu-btn span {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .menu-btn span::before {
+    top: -10px;
+    left: 0;
+  }
+
+  .menu-btn span::after {
+    top: 10px;
+    left: 0;
+  }
+
+  /* Checked state: morph into an X */
+  .menu-toggle:checked + .menu-btn span {
+    background: transparent;
+  }
+
+  .menu-toggle:checked + .menu-btn span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .menu-toggle:checked + .menu-btn span::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  /* Little press feedback */
+  .menu-toggle:active + .menu-btn {
+    transform: scale(0.92);
+    transition: transform 0.15s ease;
+  }
+
+  .menu-toggle:hover + .menu-btn {
+    background: #3a3a55;
+  }
+
+  .menu-toggle:checked + .menu-btn {
+    background: #e63950;
+  }
